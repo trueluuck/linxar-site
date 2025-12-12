@@ -3,47 +3,55 @@ import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Demonstração",
-  description: "Participe da fila de espera da LINXAR. Preencha o formulário."
+  title: "Demonstração • LINXAR",
+  description:
+    "Entre na fila de espera. Em breve você vai revolucionar a forma de cadastrar e vender online na sua empresa."
 };
 
-export default function DemoPage() {
-  // Cole aqui a URL embed do seu Google Forms com ?embedded=true
-  const formUrl =
-    process.env.NEXT_PUBLIC_GOOGLE_FORM_URL ||
-    "https://docs.google.com/forms/d/e/1FAIpQLSeEXEMPLO/viewform?embedded=true";
+const FORM_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_FORM_URL ??
+  // TODO: troque pela URL real do seu formulário Google
+  "https://docs.google.com/forms/d/e/1FAIpQLSd_EXEMPLO/viewform?embedded=true";
 
+export default function DemoPage() {
   return (
     <main>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[280px] bg-gradient-to-b from-blue-50 to-white"
-      />
-      <section className="pt-10 pb-6 sm:pt-14 sm:pb-8 border-b border-black/5">
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[260px] bg-gradient-to-b from-blue-50 to-white"
+        />
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-3 py-1 text-xs font-medium text-blue-700">
-              Em breve
-            </span>
-            <h1 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">
-              Entre na fila de espera
+          <div className="mx-auto max-w-3xl pt-12 pb-6 text-center">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+              Em breve: cadastro e vendas com IA
             </h1>
             <p className="mt-2 text-black/70">
-              Preencha o formulário e receba as novidades da LINXAR.
+              Entre para a fila de espera e seja avisado quando abrirmos convites.
             </p>
-          </div>
-        </Container>
-      </section>
 
-      <section className="py-8 sm:py-10">
-        <Container>
-          <div className="rounded-2xl border border-black/10 bg-white shadow-soft overflow-hidden">
-            <iframe
-              title="Formulário de espera — LINXAR"
-              src={formUrl}
-              className="h-[1400px] w-full"
-              loading="lazy"
-            />
+            <div className="mt-6 rounded-2xl border border-black/10 bg-white p-2 shadow-soft">
+              <div className="relative w-full overflow-hidden rounded-xl">
+                <iframe
+                  title="Fila de espera LINXAR"
+                  src={FORM_URL}
+                  className="h-[80vh] min-h-[520px] w-full"
+                  loading="lazy"
+                />
+              </div>
+              <p className="mt-2 text-xs text-black/50">
+                Problemas para carregar?{" "}
+                <a
+                  href={FORM_URL.replace("?embedded=true", "")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline"
+                >
+                  Abrir formulário em nova aba
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </Container>
       </section>
