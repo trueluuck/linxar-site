@@ -1,0 +1,270 @@
+/* styles/globals.css
+   LINXAR — Design System base (Tailwind) SEM plugins externos
+   - Tipografia/cores via CSS Variables (light/dark)
+   - A11y, forms, botões, badges, cards, skeleton
+   - Helpers: gradientes, grid, anims
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------
+   THEME TOKENS
+------------------------------*/
+@layer base {
+  :root {
+    --brand: 12 92 255;         /* Azul LINXAR */
+    --brand-foreground: 255 255 255;
+
+    --bg: 255 255 255;
+    --fg: 17 17 17;
+    --muted: 113 113 122;
+    --soft: 249 250 251;
+
+    --border: 229 231 235;
+    --ring: 59 130 246;
+
+    --shadow: 0 8px 30px rgb(0 0 0 / 0.06);
+    --radius: 14px;
+  }
+
+  .dark {
+    --bg: 9 10 12;
+    --fg: 243 244 246;
+    --muted: 156 163 175;
+    --soft: 24 25 28;
+    --border: 39 41 45;
+    --ring: 99 102 241;
+    --shadow: 0 8px 30px rgb(0 0 0 / 0.35);
+  }
+
+  html, body {
+    @apply h-full;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Seleção de texto */
+  ::selection {
+    background: rgb(var(--brand) / 0.14);
+    color: rgb(var(--fg));
+  }
+
+  /* Scrollbar moderna */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar { height: 10px; width: 10px; }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--border));
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-track { background: transparent; }
+
+  /* Tipografia base */
+  h1 { @apply text-3xl sm:text-4xl font-semibold tracking-tight; }
+  h2 { @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
+  h3 { @apply text-xl sm:text-2xl font-semibold; }
+  p  { @apply leading-relaxed text-black/80 dark:text-white/80; }
+  small { @apply text-xs text-black/60 dark:text-white/60; }
+
+  /* Links */
+  a.link {
+    @apply underline decoration-transparent underline-offset-4 transition;
+    color: rgb(var(--brand));
+  }
+  a.link:hover { text-decoration-color: rgb(var(--brand)); }
+}
+
+/* -----------------------------
+   COMPOSITION / LAYOUT
+------------------------------*/
+@layer components {
+  .container-lx { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-10 sm:py-14; }
+
+  .card {
+    @apply rounded-2xl border bg-white shadow-sm dark:bg-[#0d0f13];
+    border-color: rgb(var(--border));
+    box-shadow: var(--shadow);
+  }
+
+  .surface {
+    @apply rounded-2xl border backdrop-blur;
+    background: linear-gradient(180deg, rgb(var(--soft)) 0%, rgba(255,255,255,0) 100%);
+    border-color: rgb(var(--border));
+  }
+
+  .nav-glass {
+    @apply sticky top-0 z-50 border-b backdrop-blur;
+    background-color: rgb(var(--bg) / 0.75);
+    border-color: rgb(var(--border));
+  }
+
+  .shadow-soft { box-shadow: var(--shadow); }
+}
+
+/* -----------------------------
+   FORMS / INPUTS
+------------------------------*/
+@layer components {
+  .label { @apply mb-1 block text-sm font-medium text-black/70 dark:text-white/80; }
+  .input, .select, .textarea {
+    @apply w-full rounded-xl border bg-white px-3 py-2 text-sm text-black shadow-sm
+           outline-none transition placeholder:text-black/40
+           dark:bg-[#0f1116] dark:text-white dark:placeholder:text-white/40;
+    border-color: rgb(var(--border));
+  }
+  .input:focus, .select:focus, .textarea:focus {
+    @apply ring-2 ring-offset-2;
+    --tw-ring-color: rgb(var(--ring));
+    --tw-ring-offset-color: transparent;
+  }
+  .textarea { @apply min-h-[120px] resize-y; }
+  .help { @apply mt-1 text-xs text-black/50 dark:text-white/60; }
+}
+
+/* -----------------------------
+   BUTTONS
+------------------------------*/
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-4 py-2
+           text-sm font-medium transition focus:outline-none focus:ring-2
+           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    border-color: rgb(var(--border));
+  }
+  .btn:hover { @apply bg-black/[0.04] dark:bg-white/[0.04]; }
+
+  .btn-primary { @apply text-white border-none; background-color: rgb(var(--brand)); }
+  .btn-primary:hover { background-color: rgb(10 80 235); }
+
+  .btn-secondary { @apply bg-black/5 text-black dark:bg-white/10 dark:text-white border-0; }
+  .btn-ghost { @apply bg-transparent text-black dark:text-white; }
+  .btn-outline { @apply bg-transparent text-black dark:text-white; border-color: rgb(var(--border)); }
+  .btn-danger { @apply text-white border-none; background-color: rgb(239 68 68); }
+
+  .btn-sm { @apply rounded-xl px-3 py-1.5 text-xs; }
+  .btn-lg { @apply rounded-2xl px-5 py-3 text-base; }
+  .btn-icon { @apply size-10 p-0; }
+}
+
+/* -----------------------------
+   BADGES / CHIPS
+------------------------------*/
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium;
+    border-color: rgb(var(--border));
+    background-color: rgb(var(--soft));
+    color: rgb(var(--fg) / 0.9);
+  }
+  .badge-brand { @apply border-0 text-white; background-color: rgb(var(--brand)); }
+  .pill { @apply rounded-full bg-black/5 px-3 py-1 text-xs dark:bg-white/10; }
+}
+
+/* -----------------------------
+   PROSE (tipografia sem plugin)
+------------------------------*/
+@layer components {
+  /* Wrapper para textos longos, inspirado em Typography mas sem plugin */
+  .prose-lite { @apply max-w-none; }
+  .prose-lite > * + * { @apply mt-4; }
+
+  .prose-lite h1 { @apply mt-6 text-3xl sm:text-4xl font-semibold tracking-tight text-black dark:text-white; }
+  .prose-lite h2 { @apply mt-6 text-2xl sm:text-3xl font-semibold tracking-tight text-black dark:text-white; }
+  .prose-lite h3 { @apply mt-5 text-xl sm:text-2xl font-semibold text-black dark:text-white; }
+  .prose-lite h4 { @apply mt-4 text-lg font-semibold text-black dark:text-white; }
+
+  .prose-lite p, .prose-lite li { @apply leading-relaxed text-black/80 dark:text-white/80; }
+  .prose-lite ul { @apply list-disc pl-6; }
+  .prose-lite ol { @apply list-decimal pl-6; }
+  .prose-lite a { color: rgb(var(--brand)); text-decoration: underline; text-underline-offset: 4px; }
+  .prose-lite code { @apply rounded bg-black/5 px-1.5 py-0.5 text-[0.9em] dark:bg-white/10; }
+  .prose-lite pre { @apply rounded-xl border p-4 text-sm; border-color: rgb(var(--border)); background: linear-gradient(180deg, rgb(var(--soft)), transparent); }
+  .prose-lite blockquote { @apply border-l-4 pl-4 italic text-black/70 dark:text-white/70; border-color: rgb(var(--brand)); }
+  .prose-lite table { @apply w-full border-collapse text-sm; }
+  .prose-lite th, .prose-lite td { @apply border px-3 py-2; border-color: rgb(var(--border)); }
+}
+
+/* -----------------------------
+   FOCUS & A11Y
+------------------------------*/
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    --tw-ring-color: rgb(var(--ring));
+    --tw-ring-offset-color: transparent;
+  }
+}
+
+/* -----------------------------
+   GRADIENTS / DECOR
+------------------------------*/
+@layer utilities {
+  .gradient-brand {
+    background: linear-gradient(90deg, rgb(var(--brand)) 0%, rgb(58 134 255) 50%, rgb(100 200 255) 100%);
+  }
+  .bg-radial {
+    background: radial-gradient(1200px 600px at 50% -10%, rgb(var(--brand) / 0.14), transparent 60%);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: center;
+  }
+}
+
+/* -----------------------------
+   SKELETON / LOADERS
+------------------------------*/
+@layer components {
+  .skeleton { @apply relative overflow-hidden rounded-lg bg-black/5 dark:bg-white/10; }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+}
+
+/* -----------------------------
+   ANIMAÇÕES SUAVES
+------------------------------*/
+@keyframes fade-in { from{opacity:0} to{opacity:1} }
+@keyframes slide-up { from{transform:translateY(8px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+@layer utilities {
+  .animate-fade-in { animation: fade-in .5s ease-out both; }
+  .animate-slide-up { animation: slide-up .5s ease-out both; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+}
+
+/* Respeitar redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+/* -----------------------------
+   DIVIDERS / MISC
+------------------------------*/
+@layer components {
+  .divider { @apply h-px w-full; background-color: rgb(var(--border)); }
+  .kbd {
+    @apply rounded-md border bg-white px-1.5 py-0.5 text-[11px] font-medium text-black
+           dark:bg-[#0d0f13] dark:text-white;
+    border-color: rgb(var(--border));
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 0.06);
+  }
+}
