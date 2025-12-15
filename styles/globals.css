@@ -1,270 +1,248 @@
-/* styles/globals.css
-   LINXAR — Design System base (Tailwind) SEM plugins externos
-   - Tipografia/cores via CSS Variables (light/dark)
-   - A11y, forms, botões, badges, cards, skeleton
-   - Helpers: gradientes, grid, anims
-*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* -----------------------------
-   THEME TOKENS
-------------------------------*/
-@layer base {
+/* =========
+   TOKENS
+   ========= */
+:root {
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+
+  /* sombras “soft”, estilo produtos modernos */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+  --shadow-hover: 0 16px 40px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.06);
+
+  /* foco acessível (azul) */
+  --ring: 0 0 0 3px rgba(37,99,235,.35);
+}
+
+/* Dark mode automático (opcional) */
+@media (prefers-color-scheme: dark) {
   :root {
-    --brand: 12 92 255;         /* Azul LINXAR */
-    --brand-foreground: 255 255 255;
-
-    --bg: 255 255 255;
-    --fg: 17 17 17;
-    --muted: 113 113 122;
-    --soft: 249 250 251;
-
-    --border: 229 231 235;
-    --ring: 59 130 246;
-
-    --shadow: 0 8px 30px rgb(0 0 0 / 0.06);
-    --radius: 14px;
+    --shadow-soft: 0 10px 30px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.35);
+    --shadow-hover: 0 18px 50px rgba(0,0,0,.55), 0 3px 12px rgba(0,0,0,.45);
   }
+}
 
-  .dark {
-    --bg: 9 10 12;
-    --fg: 243 244 246;
-    --muted: 156 163 175;
-    --soft: 24 25 28;
-    --border: 39 41 45;
-    --ring: 99 102 241;
-    --shadow: 0 8px 30px rgb(0 0 0 / 0.35);
-  }
-
-  html, body {
-    @apply h-full;
-    background-color: rgb(var(--bg));
-    color: rgb(var(--fg));
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* =========
+   BASE
+   ========= */
+@layer base {
+  html {
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }
 
-  /* Seleção de texto */
-  ::selection {
-    background: rgb(var(--brand) / 0.14);
-    color: rgb(var(--fg));
+  body {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    @apply bg-white text-slate-900 antialiased;
   }
 
-  /* Scrollbar moderna */
+  /* seleção de texto */
+  ::selection {
+    background: #dbeafe; /* blue-100 */
+    color: #0f172a;      /* slate-900 */
+  }
+  @media (prefers-color-scheme: dark) {
+    ::selection {
+      background: rgba(59,130,246,.35); /* blue-500/35 */
+      color: #fff;
+    }
+  }
+
+  /* links por padrão: discretos, com sublinhado ao hover */
+  a {
+    text-decoration: none;
+    color: inherit;
+    text-underline-offset: 4px;
+    outline: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,.22);
+  }
+  @media (prefers-color-scheme: dark) {
+    a:hover { text-decoration-color: rgba(255,255,255,.35); }
+  }
+
+  /* foco acessível */
+  :focus-visible {
+    outline: none !important;
+    box-shadow: var(--ring) !important;
+    border-radius: 10px;
+  }
+
+  /* tipografia base */
+  h1,h2,h3,h4 {
+    letter-spacing: -0.02em;
+    @apply text-slate-900;
+  }
+  h1 { @apply text-4xl sm:text-6xl font-semibold leading-tight; }
+  h2 { @apply text-2xl sm:text-3xl font-semibold; }
+  h3 { @apply text-xl sm:text-2xl font-semibold; }
+  h4 { @apply text-lg font-semibold; }
+
+  p, ul, ol {
+    @apply leading-[1.6];
+  }
+
+  /* scrollbars (WebKit e Firefox) */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgb(var(--border)) transparent;
+    scrollbar-color: rgba(0,0,0,.2) transparent;
   }
   *::-webkit-scrollbar { height: 10px; width: 10px; }
-  *::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--border));
-    border-radius: 999px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-  }
   *::-webkit-scrollbar-track { background: transparent; }
-
-  /* Tipografia base */
-  h1 { @apply text-3xl sm:text-4xl font-semibold tracking-tight; }
-  h2 { @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
-  h3 { @apply text-xl sm:text-2xl font-semibold; }
-  p  { @apply leading-relaxed text-black/80 dark:text-white/80; }
-  small { @apply text-xs text-black/60 dark:text-white/60; }
-
-  /* Links */
-  a.link {
-    @apply underline decoration-transparent underline-offset-4 transition;
-    color: rgb(var(--brand));
+  *::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.2);
+    border-radius: 999px;
   }
-  a.link:hover { text-decoration-color: rgb(var(--brand)); }
+  @media (prefers-color-scheme: dark) {
+    * { scrollbar-color: rgba(255,255,255,.25) transparent; }
+    *::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); }
+  }
+
+  /* respeitar redução de movimento */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
-/* -----------------------------
-   COMPOSITION / LAYOUT
-------------------------------*/
+/* =========
+   COMPONENTS
+   ========= */
 @layer components {
-  .container-lx { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
-  .section { @apply py-10 sm:py-14; }
-
-  .card {
-    @apply rounded-2xl border bg-white shadow-sm dark:bg-[#0d0f13];
-    border-color: rgb(var(--border));
-    box-shadow: var(--shadow);
+  /* container consistente */
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
-  .surface {
-    @apply rounded-2xl border backdrop-blur;
-    background: linear-gradient(180deg, rgb(var(--soft)) 0%, rgba(255,255,255,0) 100%);
-    border-color: rgb(var(--border));
+  /* botões */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-2xl bg-blue-600 px-4 py-2
+      text-white text-sm font-medium shadow-sm ring-1 ring-black/5 transition
+      hover:bg-blue-500 active:bg-blue-600/90;
   }
-
-  .nav-glass {
-    @apply sticky top-0 z-50 border-b backdrop-blur;
-    background-color: rgb(var(--bg) / 0.75);
-    border-color: rgb(var(--border));
+  .btn-lg { @apply rounded-2xl px-5 py-3 text-base; }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-2xl border border-black/10
+      bg-white px-4 py-2 text-sm text-slate-900 shadow-sm transition
+      hover:bg-black/[0.04];
   }
-
-  .shadow-soft { box-shadow: var(--shadow); }
-}
-
-/* -----------------------------
-   FORMS / INPUTS
-------------------------------*/
-@layer components {
-  .label { @apply mb-1 block text-sm font-medium text-black/70 dark:text-white/80; }
-  .input, .select, .textarea {
-    @apply w-full rounded-xl border bg-white px-3 py-2 text-sm text-black shadow-sm
-           outline-none transition placeholder:text-black/40
-           dark:bg-[#0f1116] dark:text-white dark:placeholder:text-white/40;
-    border-color: rgb(var(--border));
+  @media (prefers-color-scheme: dark) {
+    .btn-ghost {
+      @apply border-white/10 bg-white/5 text-white hover:bg-white/10;
+    }
   }
-  .input:focus, .select:focus, .textarea:focus {
-    @apply ring-2 ring-offset-2;
-    --tw-ring-color: rgb(var(--ring));
-    --tw-ring-offset-color: transparent;
+  .btn-pill { border-radius: 9999px; }
+
+  /* inputs */
+  .input, .textarea, .select {
+    @apply w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm
+      shadow-sm outline-none transition placeholder:text-slate-400
+      focus:border-blue-500/40 focus:ring-2 focus:ring-blue-500/30;
   }
   .textarea { @apply min-h-[120px] resize-y; }
-  .help { @apply mt-1 text-xs text-black/50 dark:text-white/60; }
-}
-
-/* -----------------------------
-   BUTTONS
-------------------------------*/
-@layer components {
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-4 py-2
-           text-sm font-medium transition focus:outline-none focus:ring-2
-           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
-    border-color: rgb(var(--border));
+  @media (prefers-color-scheme: dark) {
+    .input, .textarea, .select {
+      @apply border-white/10 bg-white/5 text-white placeholder:text-white/50;
+    }
   }
-  .btn:hover { @apply bg-black/[0.04] dark:bg-white/[0.04]; }
 
-  .btn-primary { @apply text-white border-none; background-color: rgb(var(--brand)); }
-  .btn-primary:hover { background-color: rgb(10 80 235); }
+  /* cards e sombras */
+  .card {
+    @apply rounded-2xl border border-black/10 bg-white;
+    box-shadow: var(--shadow-soft);
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
 
-  .btn-secondary { @apply bg-black/5 text-black dark:bg-white/10 dark:text-white border-0; }
-  .btn-ghost { @apply bg-transparent text-black dark:text-white; }
-  .btn-outline { @apply bg-transparent text-black dark:text-white; border-color: rgb(var(--border)); }
-  .btn-danger { @apply text-white border-none; background-color: rgb(239 68 68); }
+  /* seções (respeita 8pt grid) */
+  .section-pad { @apply py-10 sm:py-12; }
 
-  .btn-sm { @apply rounded-xl px-3 py-1.5 text-xs; }
-  .btn-lg { @apply rounded-2xl px-5 py-3 text-base; }
-  .btn-icon { @apply size-10 p-0; }
-}
+  /* gradiente sutil para heros */
+  .hero-gradient {
+    background: radial-gradient(1200px 600px at 50% -10%,
+      rgba(59,130,246,.10), rgba(59,130,246,0));
+  }
 
-/* -----------------------------
-   BADGES / CHIPS
-------------------------------*/
-@layer components {
+  /* highlight de palavra (como seus títulos) */
+  .text-brand-gradient {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Brand strip: logos maiores + hover sutil */
+  .brand-strip { @apply flex flex-wrap items-center justify-center gap-4 sm:gap-6; }
+  .brand-card {
+    @apply relative grid place-items-center rounded-2xl border border-black/10 bg-white p-3 transition;
+    box-shadow: var(--shadow-soft);
+  }
+  .brand-card:hover { transform: translateY(1px); box-shadow: var(--shadow-hover); }
+  .brand-strip-logo { @apply opacity-90 transition will-change-transform; transform: scale(1); }
+  .brand-strip-logo:hover { opacity: 1; transform: scale(1.06); }
+  /* tamanhos — mantemos o “sm” menor do que na home */
+  .brand-strip-logo--sm { @apply h-8 sm:h-9; }  /* quem-somos */
+  .brand-strip-logo--md { @apply h-10 sm:h-12; } /* home */
+  .brand-strip-logo--lg { @apply h-12 sm:h-14; }
+
+  /* chips/badges utilitários */
   .badge {
-    @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium;
-    border-color: rgb(var(--border));
-    background-color: rgb(var(--soft));
-    color: rgb(var(--fg) / 0.9);
+    @apply inline-flex items-center gap-2 rounded-full border border-black/10
+      bg-black/[0.04] px-3 py-1 text-xs text-black/70;
   }
-  .badge-brand { @apply border-0 text-white; background-color: rgb(var(--brand)); }
-  .pill { @apply rounded-full bg-black/5 px-3 py-1 text-xs dark:bg-white/10; }
+  @media (prefers-color-scheme: dark) {
+    .badge { @apply border-white/10 bg-white/10 text-white/80; }
+  }
+
+  /* links “ação” visuais (para textos) */
+  .link {
+    @apply underline decoration-black/20 underline-offset-4 transition
+      hover:decoration-blue-500/50;
+  }
 }
 
-/* -----------------------------
-   PROSE (tipografia sem plugin)
-------------------------------*/
-@layer components {
-  /* Wrapper para textos longos, inspirado em Typography mas sem plugin */
-  .prose-lite { @apply max-w-none; }
-  .prose-lite > * + * { @apply mt-4; }
-
-  .prose-lite h1 { @apply mt-6 text-3xl sm:text-4xl font-semibold tracking-tight text-black dark:text-white; }
-  .prose-lite h2 { @apply mt-6 text-2xl sm:text-3xl font-semibold tracking-tight text-black dark:text-white; }
-  .prose-lite h3 { @apply mt-5 text-xl sm:text-2xl font-semibold text-black dark:text-white; }
-  .prose-lite h4 { @apply mt-4 text-lg font-semibold text-black dark:text-white; }
-
-  .prose-lite p, .prose-lite li { @apply leading-relaxed text-black/80 dark:text-white/80; }
-  .prose-lite ul { @apply list-disc pl-6; }
-  .prose-lite ol { @apply list-decimal pl-6; }
-  .prose-lite a { color: rgb(var(--brand)); text-decoration: underline; text-underline-offset: 4px; }
-  .prose-lite code { @apply rounded bg-black/5 px-1.5 py-0.5 text-[0.9em] dark:bg-white/10; }
-  .prose-lite pre { @apply rounded-xl border p-4 text-sm; border-color: rgb(var(--border)); background: linear-gradient(180deg, rgb(var(--soft)), transparent); }
-  .prose-lite blockquote { @apply border-l-4 pl-4 italic text-black/70 dark:text-white/70; border-color: rgb(var(--brand)); }
-  .prose-lite table { @apply w-full border-collapse text-sm; }
-  .prose-lite th, .prose-lite td { @apply border px-3 py-2; border-color: rgb(var(--border)); }
-}
-
-/* -----------------------------
-   FOCUS & A11Y
-------------------------------*/
+/* =========
+   UTILITIES
+   ========= */
 @layer utilities {
-  .focus-ring {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
-    --tw-ring-color: rgb(var(--ring));
-    --tw-ring-offset-color: transparent;
-  }
+  .text-balance { text-wrap: balance; } /* melhor quebra de títulos */
+  .text-pretty  { text-wrap: pretty; }  /* melhor leitura em parágrafos */
 }
 
-/* -----------------------------
-   GRADIENTS / DECOR
-------------------------------*/
-@layer utilities {
-  .gradient-brand {
-    background: linear-gradient(90deg, rgb(var(--brand)) 0%, rgb(58 134 255) 50%, rgb(100 200 255) 100%);
-  }
-  .bg-radial {
-    background: radial-gradient(1200px 600px at 50% -10%, rgb(var(--brand) / 0.14), transparent 60%);
-  }
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgba(0,0,0,.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0,0,0,.04) 1px, transparent 1px);
-    background-size: 24px 24px;
-    background-position: center;
-  }
+/* =========
+   ANIMAÇÕES
+   ========= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 0 rgba(96,165,250,0); }
+  100% { text-shadow: 0 0 18px rgba(96,165,250,.55); }
+}
+.animate-fade-up { animation: fade-up .5s ease-out both; }
+.animate-glow-end { animation: glow .6s ease-out both; }
+
+/* overlay escuro leve (para vídeos no hero, por exemplo) */
+.hero-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.0) 30%, rgba(0,0,0,.12));
 }
 
-/* -----------------------------
-   SKELETON / LOADERS
-------------------------------*/
-@layer components {
-  .skeleton { @apply relative overflow-hidden rounded-lg bg-black/5 dark:bg-white/10; }
-  .skeleton::after {
-    content: "";
-    @apply absolute inset-0 -translate-x-full;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
-    animation: shimmer 1.4s infinite;
-  }
-}
-
-/* -----------------------------
-   ANIMAÇÕES SUAVES
-------------------------------*/
-@keyframes fade-in { from{opacity:0} to{opacity:1} }
-@keyframes slide-up { from{transform:translateY(8px);opacity:0} to{transform:translateY(0);opacity:1} }
-@keyframes shimmer { 100% { transform: translateX(100%); } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-
-@layer utilities {
-  .animate-fade-in { animation: fade-in .5s ease-out both; }
-  .animate-slide-up { animation: slide-up .5s ease-out both; }
-  .animate-float { animation: float 6s ease-in-out infinite; }
-}
-
-/* Respeitar redução de movimento */
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-}
-
-/* -----------------------------
-   DIVIDERS / MISC
-------------------------------*/
-@layer components {
-  .divider { @apply h-px w-full; background-color: rgb(var(--border)); }
-  .kbd {
-    @apply rounded-md border bg-white px-1.5 py-0.5 text-[11px] font-medium text-black
-           dark:bg-[#0d0f13] dark:text-white;
-    border-color: rgb(var(--border));
-    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 0.06);
-  }
-}
+/* helpers visuais */
+.rounded-xl2 { border-radius: var(--radius); }
+.rounded-xl3 { border-radius: var(--radius-lg); }
