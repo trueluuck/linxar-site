@@ -25,8 +25,24 @@ export default function WhatsAppFloat({
   const [bubbleOpen, setBubbleOpen] = useState(false);  // só o balão
   const reduced = useReducedMotion();
 
-  const phone =
-    process.env.NEXT_PUBLIC_WHATSAPP?.toString().replace(/[^\d]/g, "") || "";
+  // ---- ENV robusto: aceita URL completa ou apenas o número
+  const rawWhats = process.env.NEXT_PUBLIC_WHATSAPP?.trim(); // pode vir como "https://wa.me/..." ou número
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, ""); // somente dígitos
+  const encMsg = encodeURIComponent(message);
+
+  let href = "";
+  if (rawWhats?.startsWith("http")) {
+    // já veio a URL completa
+    href = rawWhats;
+  } else if (rawPhone) {
+    href = `https://wa.me/${rawPhone}?text=${encMsg}`;
+  } else if (rawWhats) {
+    const digits = rawWhats.replace(/\D/g, "");
+    if (digits) href = `https://wa.me/${digits}?text=${encMsg}`;
+  }
+
+  // Se nada configurado, não renderiza
+  if (!href) return null;
 
   // Aparece após o delay
   useEffect(() => {
@@ -38,10 +54,6 @@ export default function WhatsAppFloat({
     }, delayMs);
     return () => window.clearTimeout(t);
   }, [delayMs]);
-
-  if (!phone) return null;
-
-  const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   const closeBubble = () => {
     setBubbleOpen(false);
