@@ -46,6 +46,13 @@ export default function Navbar() {
           >
             Contato
           </Link>
+          <Link
+            href="https://hub.linxar.com.br/login"
+            className="rounded-xl bg-black text-white px-4 py-1.5 hover:bg-black/90 font-medium transition-colors"
+            aria-label="Entrar no Linxar HUB"
+          >
+            Entrar
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -82,6 +89,13 @@ export default function Navbar() {
               </Link>
               <Link href="/contato" className="rounded-lg px-3 py-2 hover:bg-black/[0.04]" onClick={() => setOpen(false)}>
                 Contato
+              </Link>
+              <Link
+                href="https://hub.linxar.com.br/login"
+                className="rounded-lg px-3 py-2 bg-black text-white hover:bg-black/90 font-medium text-center mt-2"
+                onClick={() => setOpen(false)}
+              >
+                Entrar
               </Link>
             </div>
           </Container>
