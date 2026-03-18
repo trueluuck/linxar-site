@@ -80,7 +80,16 @@
     border-radius: 10px;
   }
 
-  /* tipografia base */
+  @keyframes aurora-drift {
+    0% { transform: translate(0, 0) scale(1.0); }
+    33% { transform: translate(5%, 5%) scale(1.1); }
+    66% { transform: translate(-3%, 2%) scale(0.95); }
+    100% { transform: translate(0, 0) scale(1.0); }
+  }
+
+  .animate-aurora {
+    animation: aurora-drift 20s ease-in-out infinite;
+  }
   h1,h2,h3,h4 {
     letter-spacing: -0.02em;
     @apply text-slate-900;
