@@ -5,12 +5,38 @@ import { motion, useReducedMotion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-/**
- * Vídeo online opcional via NEXT_PUBLIC_HERO_VIDEO_URL. Se ausente, hero estático.
- * Respeita prefers-reduced-motion.
- */
+function Word({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const reduced = useReducedMotion();
+  if (reduced) return <span className={className}>{children}</span>;
+
+  return (
+    <motion.span
+      initial={{ opacity: 0, y: 4, filter: "drop-shadow(0 0 0 rgba(37,99,235,0))" }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        filter: "drop-shadow(0 0 8px rgba(37,99,235,0.25))",
+      }}
+      transition={{ duration: 0.45, ease: "easeOut", delay }}
+      viewport={{ once: true, amount: 0.6 }}
+      className={className}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 export default function Hero() {
   const reduced = useReducedMotion();
   const [prefReduced, setPrefReduced] = useState(reduced);
@@ -24,12 +50,21 @@ export default function Hero() {
   }, []);
 
   const videoUrl = useMemo(() => {
+    // Tenta pegar do .env. Se não tiver, verifica se logamos um padrão ou mantemos limpo.
     const envUrl = process.env.NEXT_PUBLIC_HERO_VIDEO_URL?.trim();
     return envUrl && !prefReduced ? envUrl : "";
   }, [prefReduced]);
 
   return (
-    <section className="relative isolate">
+    <section className="relative isolate overflow-hidden">
+      {/* Background sutil se não houver vídeo */}
+      {!videoUrl && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[500px] bg-gradient-to-b from-blue-50/50 via-white to-white"
+        />
+      )}
+
       {/* Vídeo online opcional */}
       {videoUrl ? (
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -40,63 +75,71 @@ export default function Hero() {
             loop
             muted
             playsInline
-            aria-label="Demonstração visual de tecnologia LINXAR"
+            aria-label="Demonstração tecnológica LINXAR"
           />
-          <div className="hero-overlay" />
+          <div className="hero-overlay bg-white/20" />
         </div>
       ) : null}
 
-      <Container className="relative flex min-h-[82vh] flex-col items-center justify-center text-center">
+      <Container className="relative flex min-h-[90vh] flex-col items-center justify-center pt-24 pb-16 text-center">
+        {/* Badge superior */}
+        <motion.div
+          initial={reduced ? undefined : { opacity: 0, y: -10 }}
+          animate={reduced ? undefined : { opacity: 1, y: 0 }}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/50 px-4 py-1.5 text-xs font-semibold text-blue-700 backdrop-blur-md"
+        >
+          <span className="flex h-2 w-2 animate-pulse rounded-full bg-blue-600" />
+          IA Generativa para Marketplaces
+        </motion.div>
+
         <motion.h1
-          className="mx-auto max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-6xl"
+          className="mx-auto max-w-5xl text-balance text-6xl font-bold tracking-tighter text-black sm:text-8xl leading-[0.95]"
           initial={reduced ? undefined : { opacity: 0, y: 24 }}
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Otimize <span className="font-semibold">PRODUTOS</span> com{" "}
-          <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-600 bg-clip-text text-transparent">
-            IA Omnicanal
-          </span>
-          .
+          O motor de <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent italic">INTELIGÊNCIA</span> que padroniza seu e-commerce.
         </motion.h1>
 
-        <motion.p
-          className="mt-4 max-w-3xl text-pretty text-base text-black/70 sm:text-lg"
-          initial={reduced ? undefined : { opacity: 0, y: 12 }}
-          animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.12, ease: "easeOut" }}
-        >
-          LINXAR conecta EAN/GTIN via QRCODE ou CODEBAR, otimiza título, descrição e SEO, e
-          publica em massa nos marketplaces — rápido, consistente e inteligente.
-        </motion.p>
+        <p className="mt-8 max-w-3xl text-balance text-lg text-black/60 sm:text-xl leading-relaxed">
+          A <Word delay={0} className="font-bold text-blue-600">LINXAR</Word> combina tecnologia proprietária com 
+          <Word delay={0.15} className="font-bold text-blue-600">INTELIGÊNCIA ESPECIALIZADA</Word> para padronizar e 
+          enriquecer dados de produtos automaticamente — garantindo 
+          <Word delay={0.3} className="font-bold text-blue-600">consistência absoluta</Word> em todos os canais.
+        </p>
 
         <motion.div
-          className="mt-8 flex flex-col items-center gap-3 sm:flex-row"
-          initial={reduced ? undefined : { opacity: 0, y: 12 }}
-          animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.24, ease: "easeOut" }}
+           className="mt-12 flex flex-wrap items-center justify-center gap-6"
+           initial={reduced ? undefined : { opacity: 0, y: 12 }}
+           animate={reduced ? undefined : { opacity: 1, y: 0 }}
+           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         >
-          {/* CTA → /demo */}
-          <Button asChild href="/demo" aria-label="Começar a demonstração agora">
-            Começar Agora
+          <Button asChild size="lg" className="rounded-full bg-blue-600 px-10 py-7 text-lg font-bold shadow-2xl shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all">
+            <Link href="/demo">Testar Grátis Agora</Link>
           </Button>
-          {/* Como Funciona → /produto */}
           <Link
             href="/produto"
-            className="btn btn-ghost"
-            aria-label="Entender como a LINXAR funciona"
+            className="rounded-full border border-black/10 bg-white/50 backdrop-blur-md px-10 py-4 text-lg font-bold text-black/70 hover:bg-black/5 transition-all active:scale-95"
           >
-            Como Funciona
+            Ver Detalhes
           </Link>
         </motion.div>
 
+        {/* Parcerias restauradas com Logos reais e melhor UI */}
         <motion.div
-          className="mt-10 text-xs text-black/60"
+          className="mt-24 w-full max-w-4xl"
           initial={reduced ? undefined : { opacity: 0 }}
           animate={reduced ? undefined : { opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.8, duration: 1 }}
         >
-          Pré-incubada na UTFPR • Tecnologia brasileira
+          <div className="flex flex-col items-center gap-8">
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-black/20">Parceria Estratégica</span>
+            <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-20 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+               <Image src="/logos/utfpr.png" alt="UTFPR" width={110} height={40} className="object-contain" />
+               <Image src="/logos/linxar.png" alt="LINXAR" width={110} height={40} className="object-contain" />
+               <Image src="/logos/sprint.png" alt="Sprint Incubadora" width={130} height={40} className="object-contain" />
+            </div>
+          </div>
         </motion.div>
       </Container>
     </section>

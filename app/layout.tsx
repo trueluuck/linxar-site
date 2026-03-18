@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 import { Inter } from "next/font/google";
 
+import Footer from "@/components/layout/Footer";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
@@ -19,10 +21,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="h-full">
-      <body className={`${inter.variable} min-h-full antialiased`}>
+    <html lang="pt-BR" className="h-full scroll-smooth">
+      <body className={`${inter.variable} min-h-full antialiased font-sans`}>
         <Navbar />
         {children}
+        <Footer />
         <WhatsAppFloat delayMs={12000} />
       </body>
     </html>

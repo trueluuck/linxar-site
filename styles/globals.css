@@ -42,6 +42,8 @@
       "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     @apply bg-white text-slate-900 antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03", "cv08", "cv05";
+    letter-spacing: -0.01em;
   }
 
   /* seleção de texto */
@@ -243,6 +245,31 @@
   background: linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.0) 30%, rgba(0,0,0,.12));
 }
 
-/* helpers visuais */
-.rounded-xl2 { border-radius: var(--radius); }
-.rounded-xl3 { border-radius: var(--radius-lg); }
+/* Glassmorphism Navigation */
+.nav-glass {
+  @apply sticky top-0 z-50 w-full border-b border-black/[0.05] bg-white/70 backdrop-blur-xl transition-all duration-300;
+}
+@media (prefers-color-scheme: dark) {
+  .nav-glass {
+    @apply border-white/10 bg-black/70;
+  }
+}
+
+/* Glass Cards */
+.glass-card {
+  @apply rounded-3xl border border-black/[0.05] bg-white/50 backdrop-blur-md shadow-sm transition-all;
+}
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    @apply border-white/5 bg-white/[0.02];
+  }
+}
+
+/* Extended Animations */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
