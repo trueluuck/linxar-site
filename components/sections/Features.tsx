@@ -80,13 +80,39 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Parceiros Marketplaces simplificados */}
-        <div className="mt-24 border-t border-black/[0.06] pt-12">
-           <p className="text-center text-[10px] font-bold uppercase tracking-widest text-black/20 mb-8">Pronto para os maiores canais</p>
-           <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-16 grayscale opacity-30">
-              <span className="text-sm font-black uppercase tracking-tighter italic">Mercado Livre</span>
-              <span className="text-sm font-black uppercase tracking-tighter italic">Shopee</span>
-              <span className="text-sm font-black uppercase tracking-tighter italic">Amazon</span>
+        {/* Parceiros Marketplaces - Ticker Infinito */}
+        <div className="mt-32 border-t border-black/[0.06] pt-16 overflow-hidden">
+           <p className="text-center text-[10px] font-black uppercase tracking-[0.4em] text-black/20 mb-12">Pronto para os maiores canais do mercado</p>
+           
+           <div className="relative flex overflow-x-hidden">
+             <motion.div 
+               className="flex whitespace-nowrap gap-12 sm:gap-20 items-center py-4"
+               animate={{ x: [0, -1920] }}
+               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+             >
+               {[
+                 "Mercado Livre", "Shopee", "Amazon", "Magalu", "Americanas", "Casas Bahia", 
+                 "Netshoes", "Dafiti", "MadeiraMadeira", "Leroy Merlin", "Carrefour", "Extra", 
+                 "Ponto", "Centauro", "Mobly", "Zattini", "Kanui", "Via Varejo", "Kabum", 
+                 "Zoom", "Buscapé", "Inter Shop", "Aliexpress", "Shein"
+               ].concat([
+                 "Mercado Livre", "Shopee", "Amazon", "Magalu", "Americanas", "Casas Bahia", 
+                 "Netshoes", "Dafiti", "MadeiraMadeira", "Leroy Merlin", "Carrefour", "Extra", 
+                 "Ponto", "Centauro", "Mobly", "Zattini", "Kanui", "Via Varejo", "Kabum", 
+                 "Zoom", "Buscapé", "Inter Shop", "Aliexpress", "Shein"
+               ]).map((mkt, idx) => (
+                 <span 
+                   key={idx} 
+                   className="text-lg sm:text-2xl font-black uppercase tracking-tighter italic text-black/30 hover:text-blue-600 transition-colors cursor-default"
+                 >
+                   {mkt}
+                 </span>
+               ))}
+             </motion.div>
+
+             {/* Gradientes de desfoque lateral para suavizar o ticker */}
+             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+             <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
            </div>
         </div>
       </Container>
