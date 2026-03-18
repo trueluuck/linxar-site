@@ -55,13 +55,15 @@ export default function NetworkIntelligence() {
           <div className="relative order-first lg:order-last">
             <div className="relative aspect-square flex items-center justify-center scale-75 sm:scale-100">
                {/* Centro visual */}
-               <div className="h-40 w-40 rounded-[40px] bg-blue-600 shadow-[0_0_80px_rgba(37,99,235,0.4)] flex items-center justify-center z-20 transition-transform hover:scale-105 duration-500 p-8">
+               <div className="h-40 w-40 rounded-[40px] bg-white shadow-[0_0_80px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 transition-transform hover:scale-105 duration-500 p-4">
                   <div className="relative w-full h-full">
                     <Image 
                       src="/logos/linxar.png" 
                       alt="LINXAR" 
                       fill 
-                      className="object-contain brightness-0 invert" 
+                      className="object-contain" 
+                      priority
+                      quality={100}
                     />
                   </div>
                </div>
