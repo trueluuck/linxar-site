@@ -93,19 +93,19 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          className="mx-auto max-w-5xl text-balance text-6xl font-bold tracking-tighter text-black sm:text-8xl leading-[0.95]"
+          className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-tight text-black sm:text-7xl leading-[1.05]"
           initial={reduced ? undefined : { opacity: 0, y: 24 }}
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          O motor de <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent italic">INTELIGÊNCIA</span> que padroniza seu e-commerce.
+          O motor de <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent italic tracking-tight">INTELIGÊNCIA</span> que padroniza seu e-commerce.
         </motion.h1>
 
-        <p className="mt-8 max-w-3xl text-balance text-lg text-black/60 sm:text-xl leading-relaxed">
+        <p className="mt-8 mx-auto max-w-2xl text-pretty text-base text-black/60 sm:text-xl leading-relaxed px-4">
           A <Word delay={0} className="font-bold text-blue-600">LINXAR</Word> combina tecnologia proprietária com 
-          <Word delay={0.15} className="font-bold text-blue-600">INTELIGÊNCIA ESPECIALIZADA</Word> para padronizar e 
+          <Word delay={0.15} className="font-bold text-blue-600"> INTELIGÊNCIA ESPECIALIZADA</Word> para padronizar e 
           enriquecer dados de produtos automaticamente — garantindo 
-          <Word delay={0.3} className="font-bold text-blue-600">consistência absoluta</Word> em todos os canais.
+          <Word delay={0.3} className="font-bold text-blue-600"> consistência absoluta</Word>.
         </p>
 
         <motion.div
