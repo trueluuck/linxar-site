@@ -80,15 +80,40 @@
     border-radius: 10px;
   }
 
-  @keyframes aurora-drift {
-    0% { transform: translate(0, 0) scale(1.0); }
-    33% { transform: translate(5%, 5%) scale(1.1); }
-    66% { transform: translate(-3%, 2%) scale(0.95); }
-    100% { transform: translate(0, 0) scale(1.0); }
+  @keyframes aurora-deep {
+    0% { transform: translate(-10%, -10%) scale(1); rotate: 0deg; }
+    50% { transform: translate(10%, 10%) scale(1.1); rotate: 45deg; }
+    100% { transform: translate(-10%, -10%) scale(1); rotate: 0deg; }
   }
 
-  .animate-aurora {
-    animation: aurora-drift 20s ease-in-out infinite;
+  @keyframes aurora-mid {
+    0% { transform: translate(10%, 10%) scale(1.1); rotate: 0deg; }
+    50% { transform: translate(-15%, -5%) scale(0.9); rotate: -30deg; }
+    100% { transform: translate(10%, 10%) scale(1.1); rotate: 0deg; }
+  }
+
+  @keyframes aurora-floating {
+    0% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-30px) scale(1.05); opacity: 0.6; }
+    100% { transform: translateY(0) scale(1); opacity: 0.3; }
+  }
+
+  .animate-aurora-deep {
+    animation: aurora-deep 40s ease-in-out infinite;
+  }
+
+  .animate-aurora-mid {
+    animation: aurora-mid 30s ease-in-out infinite;
+  }
+
+  .animate-aurora-floating {
+    animation: aurora-floating 15s ease-in-out infinite;
+  }
+
+  .bg-noise {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(1000%);
+    opacity: 0.05;
   }
   h1,h2,h3,h4 {
     letter-spacing: -0.02em;
