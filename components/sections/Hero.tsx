@@ -83,14 +83,7 @@ export default function Hero() {
 
       <Container className="relative flex min-h-[90vh] flex-col items-center justify-center pt-24 pb-16 text-center">
         {/* Badge superior */}
-        <motion.div
-          initial={reduced ? undefined : { opacity: 0, y: -10 }}
-          animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/50 px-4 py-1.5 text-xs font-semibold text-blue-700 backdrop-blur-md"
-        >
-          <span className="flex h-2 w-2 animate-pulse rounded-full bg-blue-600" />
-          IA Generativa para Marketplaces
-        </motion.div>
+        
 
         <motion.h1
           className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-tight text-black sm:text-7xl leading-[1.05]"
@@ -98,7 +91,7 @@ export default function Hero() {
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          O motor de <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent italic tracking-tight">INTELIGÊNCIA</span> que padroniza seu e-commerce.
+          O motor de <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent italic tracking-tight">INTELIGÊNCIA</span> que otimiza seus anúncios nos marketplaces.
         </motion.h1>
 
         <p className="mt-8 mx-auto max-w-2xl text-pretty text-base text-black/60 sm:text-xl leading-relaxed px-4">
