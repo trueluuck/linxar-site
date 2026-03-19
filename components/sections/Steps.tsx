@@ -24,8 +24,7 @@ const steps = [
 
 export default function Steps() {
   return (
-    <section id="passos" className="relative py-24 sm:py-32 bg-white overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
+    <section id="passos" className="relative py-24 sm:py-32 bg-transparent overflow-hidden">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">

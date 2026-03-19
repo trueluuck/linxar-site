@@ -80,34 +80,17 @@
     border-radius: 10px;
   }
 
-  @keyframes aurora-deep {
-    0% { transform: translate(-10%, -10%) scale(1); rotate: 0deg; }
-    50% { transform: translate(10%, 10%) scale(1.1); rotate: 45deg; }
-    100% { transform: translate(-10%, -10%) scale(1); rotate: 0deg; }
+  @keyframes aurora-rays {
+    0% { transform: translateX(-10%) scaleY(1); opacity: 0.1; }
+    50% { transform: translateX(10%) scaleY(1.3) skewX(-10deg); opacity: 0.4; }
+    100% { transform: translateX(-10%) scaleY(1); opacity: 0.1; }
   }
 
-  @keyframes aurora-mid {
-    0% { transform: translate(10%, 10%) scale(1.1); rotate: 0deg; }
-    50% { transform: translate(-15%, -5%) scale(0.9); rotate: -30deg; }
-    100% { transform: translate(10%, 10%) scale(1.1); rotate: 0deg; }
-  }
-
-  @keyframes aurora-floating {
-    0% { transform: translateY(0) scale(1); opacity: 0.3; }
-    50% { transform: translateY(-30px) scale(1.05); opacity: 0.6; }
-    100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  }
-
-  .animate-aurora-deep {
-    animation: aurora-deep 40s ease-in-out infinite;
-  }
-
-  .animate-aurora-mid {
-    animation: aurora-mid 30s ease-in-out infinite;
-  }
-
-  .animate-aurora-floating {
-    animation: aurora-floating 15s ease-in-out infinite;
+  .aurora-ray {
+    @apply absolute top-0 w-[20vw] h-[150vh] blur-[80px];
+    background: linear-gradient(to bottom, transparent, currentColor 50%, transparent);
+    animation: aurora-rays 20s ease-in-out infinite;
+    mix-blend-mode: screen;
   }
 
   .bg-noise {

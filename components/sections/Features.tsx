@@ -52,7 +52,7 @@ export default function Features() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="recursos" className="py-24 sm:py-32 bg-white">
+    <section id="recursos" className="py-24 sm:py-32 bg-transparent">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-blue-600">Fluxar AI</h2>

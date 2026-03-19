@@ -56,14 +56,8 @@ export default function Hero() {
   }, [prefReduced]);
 
   return (
-    <section className="relative isolate overflow-hidden">
-      {/* Background sutil se não houver vídeo */}
-      {!videoUrl && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[500px] bg-gradient-to-b from-blue-50/50 via-white to-white"
-        />
-      )}
+    <section className="relative isolate overflow-hidden bg-transparent">
+      {/* Background removido para mostrar a aurora do layout */}
 
       {/* Vídeo online opcional */}
       {videoUrl ? (
