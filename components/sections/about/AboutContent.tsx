@@ -14,12 +14,9 @@ export default function AboutContent() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[260px] bg-gradient-to-b from-blue-50 to-white"
-        />
+        {/* Background Aurora-friendly */}
         <Container>
-          <div className="pt-10 sm:pt-12 pb-6 border-b border-black/5">
+          <div className="pt-28 sm:pt-36 pb-6 border-b border-black/5">
             <motion.p
               className="text-xs uppercase tracking-widest text-black/50"
               initial={reduced ? undefined : { opacity: 0, y: -6 }}
@@ -83,7 +80,7 @@ export default function AboutContent() {
       {/* Ambiente de Inovação (Sprint – UTFPR) */}
       <section className="py-8 sm:py-10">
         <Container>
-          <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-soft">
+          <div className="rounded-2xl border border-black/10 bg-white/30 backdrop-blur-xl p-5 shadow-soft">
             <h2 className="text-[22px] sm:text-3xl font-semibold tracking-tight">
               Ambiente de Inovação (Sprint — UTFPR)
             </h2>
@@ -93,7 +90,7 @@ export default function AboutContent() {
               infraestrutura de laboratórios, mentorias e capacitações alinhadas à rede UTFPR.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <ul className="rounded-2xl border border-black/10 bg-black/[0.035] p-4 text-[14px] leading-[1.55]">
+              <ul className="rounded-2xl border border-black/10 bg-white/20 backdrop-blur-md p-4 text-[14px] leading-[1.55]">
                 <li>• Laboratórios e suporte técnico</li>
                 <li>• Mentorias e capacitações</li>
                 <li>• Conexão com a rede UTFPR</li>
@@ -123,7 +120,7 @@ export default function AboutContent() {
       <section className="pb-12 sm:pb-14">
         <Container>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-soft">
+            <div className="rounded-2xl border border-black/10 bg-white/30 backdrop-blur-xl p-5 shadow-soft">
               <h3 className="text-base font-semibold">Onde estamos</h3>
               <p className="mt-1 text-sm text-black/70">
                 Avenida Professora Laura Pacheco Bastos, 800 — Bloco R, 1º Andar,

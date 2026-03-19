@@ -31,6 +31,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-8 text-[13px] font-medium sm:flex">
             <Link href="/" className="text-black/50 hover:text-black transition-colors">Início</Link>
             <Link href="/produto" className="text-black/50 hover:text-black transition-colors">Produto</Link>
+            <Link href="/quem-somos" className="text-black/50 hover:text-black transition-colors font-bold text-blue-600">Quem Somos</Link>
             <Link href="/demo" className="text-black/50 hover:text-black transition-colors">Demo</Link>
             <Link href="/contato" className="text-black/50 hover:text-black transition-colors">Contato</Link>
           </div>
@@ -62,10 +63,10 @@ export default function Navbar() {
         <div className="mx-4 mt-2 sm:hidden">
           <div className="rounded-3xl border border-black/[0.08] bg-white/90 p-4 backdrop-blur-xl shadow-2xl animate-fade-in">
              <div className="flex flex-col gap-2">
-                {['Início', 'Produto', 'Demo', 'Contato'].map((item) => (
+                {['Início', 'Produto', 'Quem Somos', 'Demo', 'Contato'].map((item) => (
                   <Link 
                     key={item}
-                    href={item === 'Início' ? '/' : `/${item.toLowerCase().replace('í', 'i')}`}
+                    href={item === 'Início' ? '/' : `/${item.toLowerCase().replace('í', 'i').replace(' ', '-')}`}
                     className="rounded-2xl px-4 py-3 text-sm font-medium hover:bg-black/5 transition-colors"
                     onClick={() => setOpen(false)}
                   >
