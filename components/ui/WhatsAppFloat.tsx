@@ -27,15 +27,14 @@ export default function WhatsAppFloat({
 
   // ---- ENV robusto: aceita URL completa ou apenas o número
   const rawWhats = process.env.NEXT_PUBLIC_WHATSAPP?.trim(); // pode vir como "https://wa.me/..." ou número
-  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, ""); // somente dígitos
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, "") || "5542999217736"; // somente dígitos
   const encMsg = encodeURIComponent(message);
 
-  let href = "";
+  let href = `https://wa.me/${rawPhone}?text=${encMsg}`;
+
   if (rawWhats?.startsWith("http")) {
     // já veio a URL completa
     href = rawWhats;
-  } else if (rawPhone) {
-    href = `https://wa.me/${rawPhone}?text=${encMsg}`;
   } else if (rawWhats) {
     const digits = rawWhats.replace(/\D/g, "");
     if (digits) href = `https://wa.me/${digits}?text=${encMsg}`;
