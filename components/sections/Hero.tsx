@@ -77,78 +77,63 @@ export default function Hero() {
         </div>
       ) : null}
 
-      <Container className="relative flex min-h-[90vh] items-center justify-between pt-32 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-          {/* Left Side: Content */}
-          <div className="max-w-2xl text-left">
+      <Container className="relative flex min-h-screen items-center justify-center pt-24 pb-12 sm:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-24 items-center w-full max-w-7xl mx-auto">
+          {/* Left Side: Content - RESPONSIVO E OTIMIZADO */}
+          <div className="flex flex-col justify-center h-full space-y-8 sm:space-y-12">
             <motion.h1
-              className="text-balance text-5xl font-black tracking-tighter text-black sm:text-7xl leading-[1.05]"
-              initial={reduced ? undefined : { opacity: 0, x: -24 }}
+              className="text-balance text-4xl font-black tracking-tighter text-black sm:text-7xl leading-[1.05] sm:leading-[1.02]"
+              initial={reduced ? undefined : { opacity: 0, x: -30 }}
               animate={reduced ? undefined : { opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
             >
               Sua operação <br />
               <span className="italic font-light text-black/40 tracking-wider">merece fluidez.</span> <br />
               A <span className="shimmer-text px-1">LINXAR</span> automatiza <br />
-              seu crescimento operacional.
+              seu crescimento.
             </motion.h1>
 
-            <p className="mt-8 text-pretty text-lg text-black/60 sm:text-xl leading-relaxed font-medium">
-              <Word delay={0} className="font-bold text-blue-600">INTELIGÊNCIA QUE ESCALA</Word>. Automatize, padronize e publique 
-              em múltiplos marketplaces — <Word delay={0.15} className="font-bold text-blue-600">mais rápido</Word>, 
-              <Word delay={0.3} className="font-bold text-blue-600"> mais inteligente</Word> e sem riscos operacionais.
-            </p>
+            <div className="space-y-8 sm:space-y-10">
+              <p className="max-w-xl text-pretty text-base text-black/70 sm:text-xl leading-relaxed font-medium">
+                <Word delay={0} className="font-extrabold text-blue-600 uppercase tracking-widest text-[10px] sm:text-xs">Inteligência que escala</Word>. Automatize, padronize e publique 
+                em múltiplos marketplaces — <Word delay={0.15} className="font-bold text-blue-600">mais rápido</Word>, 
+                <Word delay={0.3} className="font-bold text-blue-600">mais inteligente</Word> e sem riscos operacionais.
+              </p>
 
-            <motion.div
-              className="mt-12 flex flex-wrap items-center justify-start gap-6"
-              initial={reduced ? undefined : { opacity: 0, y: 12 }}
-              animate={reduced ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            >
-              <Link
-                href="https://hub.linxar.com.br/login"
-                className="btn-premium"
+              <motion.div
+                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 sm:gap-6"
+                initial={reduced ? undefined : { opacity: 0, y: 12 }}
+                animate={reduced ? undefined : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               >
-                Testar Grátis Agora
-              </Link>
-              <Link
-                href="#produto"
-                className="rounded-2xl border border-black/5 bg-white/40 backdrop-blur-md px-8 py-5 text-lg font-semibold text-black/70 hover:bg-black/5 transition-all active:scale-95"
-              >
-                Ver Detalhes
-              </Link>
-            </motion.div>
-
-            {/* Parcerias integradas com máxima ênfase */}
-            <motion.div
-              className="mt-20 p-8 rounded-[32px] border border-black/[0.04] bg-white transition-all hover:bg-white/[0.8] hover:shadow-[0_32px_64px_rgba(0,0,0,0.05)] relative overflow-hidden group shadow-soft glass-reflection"
-              initial={reduced ? undefined : { opacity: 0, y: 20 }}
-              whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              viewport={{ once: true }}
-            >
-              <span className="shimmer-text text-[11px] sm:text-xs font-black uppercase tracking-[0.4em] block mb-8 relative z-10">
-                Infraestrutura em parceria com
-              </span>
-              <div className="flex flex-wrap items-center gap-12 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 relative z-10">
-                 <Image src="/logos/utfpr.png" alt="UTFPR" width={140} height={50} className="object-contain hover:scale-105 transition-transform" />
-                 <Image src="/logos/sprint.png" alt="Sprint Incubadora" width={150} height={50} className="object-contain hover:scale-105 transition-transform" />
-              </div>
-            </motion.div>
+                <Link
+                  href="https://hub.linxar.com.br/login"
+                  className="btn-premium py-4 sm:py-5 px-8 sm:px-10 text-lg sm:text-xl text-center"
+                >
+                  Testar Grátis Agora
+                </Link>
+                <Link
+                  href="#produto"
+                  className="rounded-[20px] border border-black/5 bg-white/40 backdrop-blur-md px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-semibold text-black/70 hover:bg-black/5 transition-all active:scale-95 text-center"
+                >
+                  Ver Detalhes
+                </Link>
+              </motion.div>
+            </div>
           </div>
 
-          {/* Right Side: Visual Infrastructure */}
-          <div className="flex relative items-center justify-center min-h-[350px] sm:min-h-[500px]">
+          {/* Right Side: Visual Infrastructure - ESCALADO PARA MOBILE */}
+          <div className="flex relative items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] mt-8 sm:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative w-full aspect-square max-w-[320px] sm:max-w-[500px] flex items-center justify-center scale-75 sm:scale-100"
+              transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
+              className="relative w-full aspect-square max-w-[320px] sm:max-w-[450px] lg:max-w-[550px] flex items-center justify-center scale-75 sm:scale-90 lg:scale-100"
             >
               {/* Central Glow & Hub */}
-              <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full animate-pulse" />
-              <div className="relative z-10 flex items-center justify-center h-40 w-40 glass-card glass-reflection border-white/20 shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-[40px] overflow-hidden">
-                <Image src="/logos/linxar.png" alt="LINXAR Code" width={100} height={100} className="object-contain" />
+              <div className="absolute inset-0 bg-blue-600/5 blur-[80px] sm:blur-[100px] rounded-full" />
+              <div className="relative z-10 flex items-center justify-center h-28 w-28 sm:h-40 sm:w-40 glass-card glass-reflection border-white/40 shadow-2xl rounded-[32px] sm:rounded-[48px] overflow-hidden group">
+                <Image src="/logos/linxar.png" alt="LINXAR" width={80} height={80} className="object-contain sm:w-[100px] sm:h-[100px] group-hover:scale-105 transition-transform duration-700" />
               </div>
 
               {/* Connecting Lines SVG Layer */}
@@ -156,82 +141,99 @@ export default function Hero() {
                 <defs>
                   <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#2563eb" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#2563eb" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#2563eb" stopOpacity="0.6" />
+                    <stop offset="50%" stopColor="#2563eb" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#2563eb" stopOpacity="0.8" />
+                  </linearGradient>
+                  <linearGradient id="partnerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0" />
+                    <stop offset="50%" stopColor="#10b981" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#10b981" stopOpacity="0.8" />
                   </linearGradient>
                 </defs>
-                {/* Top Left */}
-                <motion.line x1="250" y1="250" x2="100" y2="120" stroke="url(#lineGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 0.5 }} />
-                {/* Top Right */}
-                <motion.line x1="250" y1="250" x2="400" y2="120" stroke="url(#lineGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 0.6 }} />
-                {/* Bottom Left */}
-                <motion.line x1="250" y1="250" x2="100" y2="380" stroke="url(#lineGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 0.7 }} />
-                {/* Bottom Right */}
-                <motion.line x1="250" y1="250" x2="400" y2="380" stroke="url(#lineGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 0.8 }} />
+                <motion.line x1="250" y1="250" x2="50" y2="50" stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.5 }} />
+                <motion.line x1="250" y1="250" x2="450" y2="50" stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.6 }} />
+                <motion.line x1="250" y1="250" x2="50" y2="450" stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.7 }} />
+                <motion.line x1="250" y1="250" x2="450" y2="450" stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.8 }} />
+                <motion.line x1="250" y1="250" x2="0" y2="250" stroke="url(#partnerGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1 }} />
+                <motion.line x1="250" y1="250" x2="500" y2="250" stroke="url(#partnerGrad)" strokeWidth="1.5" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.1 }} />
               </svg>
 
-              {/* Callouts */}
-              {/* Top Left */}
+              {/* Callouts Principais - REDUZIDOS EM MOBILE */}
               <motion.div
-                initial={{ opacity: 0, x: -20, y: -20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="absolute top-[80px] left-[20px] glass-card px-5 py-3 border-blue-500/20 shadow-xl"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="absolute top-[20px] sm:top-[30px] left-[-10px] sm:left-[-15px] glass-card px-3 sm:px-5 py-1.5 sm:py-2 border-blue-500/20 shadow-xl backdrop-blur-3xl"
               >
-                <div className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-blue-600 animate-ping" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-black/80">Cadastro em Segundos</span>
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-ping" />
+                  <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] text-black">SEO Preditivo IA</span>
                 </div>
               </motion.div>
 
-              {/* Top Right */}
               <motion.div
-                initial={{ opacity: 0, x: 20, y: -20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.8 }}
-                className="absolute top-[80px] right-[20px] glass-card px-5 py-3 border-blue-500/20 shadow-xl"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1 }}
+                className="absolute top-[20px] sm:top-[30px] right-[-10px] sm:right-[-15px] glass-card px-3 sm:px-5 py-1.5 sm:py-2 border-blue-500/20 shadow-xl backdrop-blur-3xl"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-black/80">Anúncios que Vendem</span>
-                  <div className="h-2 w-2 rounded-full bg-blue-600 animate-ping" />
+                <div className="flex items-center gap-2">
+                  <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] text-black">Motor Omnicanal</span>
+                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-ping" />
                 </div>
               </motion.div>
 
-              {/* Bottom Left */}
               <motion.div
-                initial={{ opacity: 0, x: -20, y: 20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-                className="absolute bottom-[80px] left-[20px] glass-card px-5 py-3 border-blue-500/20 shadow-xl"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.4 }}
+                className="absolute top-1/2 -translate-y-1/2 left-[-40px] sm:left-[-60px] glass-card p-2 sm:p-3 border-emerald-500/20 shadow-2xl backdrop-blur-xl group"
               >
-                <div className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-blue-600 animate-ping" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-black/80">Descrições Personalizadas</span>
+                <Image src="/logos/utfpr.png" alt="UTFPR" width={50} height={20} className="object-contain sm:w-[70px] opacity-70 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.5 }}
+                className="absolute top-1/2 -translate-y-1/2 right-[-40px] sm:right-[-60px] glass-card p-2 sm:p-3 border-emerald-500/20 shadow-2xl backdrop-blur-xl group"
+              >
+                <Image src="/logos/sprint.png" alt="Sprint" width={60} height={20} className="object-contain sm:w-[80px] opacity-70 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+                className="absolute bottom-[20px] sm:bottom-[30px] left-[-10px] sm:left-[-15px] glass-card px-3 sm:px-5 py-1.5 sm:py-2 border-blue-500/20 shadow-xl backdrop-blur-3xl"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-ping" />
+                  <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] text-black">Enriquecimento Global</span>
                 </div>
               </motion.div>
 
-              {/* Bottom Right */}
               <motion.div
-                initial={{ opacity: 0, x: 20, y: 20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 1.3, duration: 0.8 }}
-                className="absolute bottom-[80px] right-[20px] glass-card px-5 py-3 border-blue-500/20 shadow-xl"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3 }}
+                className="absolute bottom-[20px] sm:bottom-[30px] right-[-10px] sm:right-[-15px] glass-card px-3 sm:px-5 py-1.5 sm:py-2 border-blue-500/20 shadow-xl backdrop-blur-3xl"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-black/80">Títulos Perpétuos</span>
-                  <div className="h-2 w-2 rounded-full bg-blue-600 animate-ping" />
+                <div className="flex items-center gap-2">
+                  <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] text-black">Escala Infinita</span>
+                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-ping" />
                 </div>
               </motion.div>
+            </motion.div>
 
-              {/* Floating Orbitals for Extra Depth */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 pointer-events-none"
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-blue-500/20" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-indigo-500/10" />
-              </motion.div>
+            {/* Floating Orbitals for Extra Depth - ESCALADO EM MOBILE */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 pointer-events-none scale-[1] sm:scale-[1.3]"
+            >
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-blue-500/20 blur-[2px]" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-4 w-4 sm:h-6 sm:w-6 rounded-full bg-indigo-500/10 blur-[4px]" />
             </motion.div>
           </div>
         </div>

@@ -16,27 +16,34 @@ A LINXAR é o motor definitivo de inteligência para o comércio digital. Especi
 ---
 
 ## ✨ 3. Requisitos de Design e UX (Premium SPA)
-- **SPA Flow**: Experiência contínua que elimina recarregamentos de página, aumentando a retenção.
-- **Dashboard Preview (Tangibilidade)**: Visualização da interface do produto para gerar confiança imediata.
-- **Atmosphere & Depth**: Uso de orbes de luz e reflexos de vidro para uma estética de software de elite.
-- **Logo Connectivity**: Sistema visual que conecta o core da marca aos benefícios operacionais via SVG lines.
+- **SPA Flow**: Experiência contínua que elimina recarregamentos de página (Vercel Edge Rendering).
+- **Dashboard Preview (Tangibilidade)**: Interface codificada (Mockup Programático) para demonstrar as métricas de escala.
+- **Atmosphere Orbs & Depth**: Gradientes suaves e reflexos de vidro que remetem a softwares de elite.
+- **Institutional Branding**: LOGO conectada diretamente à base tecnológica da **UTFPR** e **Sprint**, demonstrando autoridade.
 
 ---
 
-## 🛠️ 4. Requisitos Funcionais & Conversão
-- **Secure Migration Block**: Quebra de objeção técnica para transição suave de outros sistemas.
-- **Fluxar AI Engine Showcase**: Demonstração de recursos de normalização e enriquecimento de dados em tempo real.
-- **Suporte Multicanal High-End**: Foco em atendimento especializado e migração assistida.
-- **Integração com Linxar HUB**: Fluxo direto para a aplicação funcional através de botões estratégicos.
+## 📱 4. Versatilidade de Dispositivos (Mobile-First)
+- **Escalabilidade Dinâmica**: Layout projetado para ser legível e imersivo em celulares antigos (telas < 360px) e novos (telas > 420px).
+- **Interactive Thumbnails**: Elementos visuais que reduzem de escala proporcionalmente para manter a usabilidade mobile sem perder a estética.
+- **Touch-Optimized Interaction**: Botões e menus com áreas de clique expandidas para navegação fluida com uma mão.
 
 ---
 
-## 🔒 5. Sigilo e Conformidade
+## 🛠️ 5. Requisitos Funcionais & Conversão
+- **Secure Migration Block**: Foco em integridade de dados para sellers que migram de outros ecossistemas.
+- **Fluxar AI Engine Showcase**: Visualização programática do "Status do Motor" e "Desempenho de Escala".
+- **Suporte especializado**: Integração direta com WhatsApp de especialistas para grandes contas.
+- **Marketplace Hub Expanded**: Carrossel com mais de 30 logos de marketplaces para demonstrar alcance total.
+
+---
+
+## 🔒 6. Sigilo e Conformidade
 **Arquitetura de comunicação "Black Box"**: Expor os benefícios de alta performance sem revelar a mecânica proprietária dos algoritmos de IA e roteamento de dados.
 
 ---
 
-## 📈 6. Métricas de Sucesso
-- **Lighthouse Performance**: Green Core Web Vitals.
-- **User Trust**: Redução de bounce rate através de design premium e velocidade.
-- **Conversion Flow**: Cliques monitorados para WhatsApp e HUB de Login.
+## 📈 7. Métricas de Sucesso
+- **Core Web Vitals**: Performance 95+ em todos os pilares (Lighthouse).
+- **Mobile First Score**: 100% de fluidez em testes manuais de responsividade.
+- **Lead Generation**: Aumento de cliques em "Testar Grátis Agora" e botões de Login.

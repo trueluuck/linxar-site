@@ -3,7 +3,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Container from "@/components/ui/Container";
-import Image from "next/image";
+import DashboardMockup from "@/components/ui/DashboardMockup";
 
 export default function DashboardPreview() {
   const reduced = useReducedMotion();
@@ -22,44 +22,38 @@ export default function DashboardPreview() {
         </div>
 
         <motion.div
-          initial={reduced ? undefined : { opacity: 0, y: 40, scale: 0.95 }}
+          initial={reduced ? undefined : { opacity: 0, y: 40, scale: 0.98 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
           viewport={{ once: true }}
           className="relative mx-auto max-w-6xl"
         >
-          {/* Dashboard Frame */}
-          <div className="relative rounded-[48px] border border-black/[0.08] bg-white p-4 shadow-[0_40px_100px_rgba(0,0,0,0.1)] overflow-hidden glass-reflection">
-             <div className="relative aspect-[16/10] w-full rounded-[38px] overflow-hidden">
-                <Image 
-                  src="/dashboard-preview.png" 
-                  alt="LINXAR Hub Dashboard" 
-                  fill 
-                  className="object-cover"
-                  priority
-                />
+          {/* Dashboard Frame - Enhanced Wrapper */}
+          <div className="relative rounded-[40px] sm:rounded-[64px] border border-black/[0.08] bg-white p-3 sm:p-6 shadow-[0_40px_100px_rgba(0,0,0,0.1)] overflow-hidden glass-reflection">
+             <div className="relative aspect-[16/10] w-full rounded-[32px] sm:rounded-[48px] overflow-hidden border border-black/[0.04] shadow-inner bg-[#fafafa]">
+                <DashboardMockup />
                 
-                {/* Floating Callouts overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                
+                {/* Floating Callouts - Conteúdo mais assertivo */}
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1, duration: 0.8 }}
-                  className="absolute top-1/4 right-8 glass-card border-blue-500/20 px-6 py-4 shadow-2xl hidden lg:block"
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="absolute top-8 right-8 glass-card border-blue-500/20 px-8 py-5 shadow-2xl hidden lg:block backdrop-blur-3xl"
                 >
-                  <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Status do Motor</p>
-                  <p className="text-lg font-bold text-black tracking-tight">Fluxar AI Ativo</p>
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Motor de Escala</p>
+                  <p className="text-xl font-black text-black tracking-tight">Fluxar AI Engine</p>
+                  <p className="mt-2 text-[10px] font-bold text-black/30 uppercase tracking-widest">Ativo em 12+ canais</p>
                 </motion.div>
 
                 <motion.div 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.2, duration: 0.8 }}
-                  className="absolute bottom-1/4 left-8 glass-card border-emerald-500/20 px-6 py-4 shadow-2xl hidden lg:block"
+                  transition={{ delay: 1, duration: 0.8 }}
+                  className="absolute bottom-8 left-8 glass-card border-emerald-500/20 px-8 py-5 shadow-2xl hidden lg:block backdrop-blur-3xl"
                 >
-                  <p className="text-xs font-black text-emerald-600 uppercase tracking-widest mb-1">Performance</p>
-                  <p className="text-lg font-bold text-black tracking-tight">Escala em Tempo Real</p>
+                  <p className="text-[10px] font-black text-emerald-600 uppercase tracking-[0.2em] mb-2">IA Omnicanal</p>
+                  <p className="text-xl font-black text-black tracking-tight">Enriquecimento Real</p>
+                  <p className="mt-2 text-[10px] font-bold text-black/30 uppercase tracking-widest">Otimização Zero-Latency</p>
                 </motion.div>
              </div>
           </div>
