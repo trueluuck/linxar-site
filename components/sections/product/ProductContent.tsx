@@ -47,7 +47,7 @@ export default function ProductContent() {
         <Container>
           <div className="text-center">
             <Chip>Nosso propósito</Chip>
-            <motion.h1
+            <motion.h2
               className="mt-6 text-4xl sm:text-6xl font-bold tracking-tight text-black leading-tight"
               initial={reduced ? undefined : { opacity: 0, y: 20 }}
               animate={reduced ? undefined : { opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function ProductContent() {
             >
               Potencialize suas vendas <br className="hidden sm:block" />
               com a força da <span className="text-blue-600 italic">IA Omnicanal</span>.
-            </motion.h1>
+            </motion.h2>
             <p className="mt-8 mx-auto max-w-2xl text-lg text-black/60 leading-relaxed">
               Um único cadastro, múltiplos anúncios otimizados e publicados nos principais canais — 
               rápido, consistente e inteligente.

@@ -22,25 +22,25 @@ export default function Testimonials() {
     <section className="py-24 bg-transparent">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-blue-600">Depoimentos</h2>
-          <p className="mt-4 text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          <h2 className="shimmer-text text-[11px] font-black uppercase tracking-[0.4em] mb-8 inline-block">Social Proof</h2>
+          <p className="text-4xl font-black tracking-tighter text-black sm:text-6xl leading-[1.1] text-balance">
             O que nossos parceiros estão dizendo
           </p>
         </div>
 
         <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mx-0 lg:max-w-none">
           {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col rounded-3xl border border-black/5 bg-gray-50/50 p-10 backdrop-blur-md"
-            >
-              <blockquote className="flex-1 text-lg leading-relaxed text-black/80 font-medium">
-                “{t.content}”
-              </blockquote>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col rounded-[40px] border border-black/[0.04] bg-white/40 p-12 backdrop-blur-xl glass-reflection shadow-soft hover:shadow-hover transition-all"
+              >
+                <blockquote className="flex-1 text-xl leading-relaxed text-black/70 font-medium italic">
+                  “{t.content}”
+                </blockquote>
               <div className="mt-8 flex items-center gap-4">
                 <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600 text-sm">
                   {t.author.charAt(0)}

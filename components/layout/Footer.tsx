@@ -3,21 +3,22 @@
 
 import Container from "@/components/ui/Container";
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   {
     title: "Produto",
     links: [
-      { name: "Funcionalidades", href: "/#recursos" },
-      { name: "Como Funciona", href: "/#passos" },
-      { name: "Demo", href: "/demo" },
+      { name: "Funcionalidades", href: "#produto" },
+      { name: "Como Funciona", href: "#como-funciona" },
+      { name: "Infraestrutura", href: "#infraestrutura" },
     ],
   },
   {
     title: "Empresa",
     links: [
-      { name: "Quem Somos", href: "/quem-somos" },
-      { name: "Contato", href: "/contato" },
+      { name: "Quem Somos", href: "#quem-somos" },
+      { name: "Depoimentos", href: "#depoimentos" },
     ],
   },
   {
@@ -35,13 +36,23 @@ export default function Footer() {
   return (
     <footer className="bg-black py-12 sm:py-24 text-white">
       <Container>
-        <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-16 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-              LINXAR<span className="text-blue-500">.</span>
+            <Link href="#inicio" className="flex items-center gap-3 group" aria-label="Voltar para o topo">
+              <div className="relative h-8 w-8 transition-transform group-hover:scale-110">
+                <Image
+                  src="/logo-navbar@3x.png"
+                  alt="LINXAR"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-3xl font-bold tracking-tighter text-white font-outfit uppercase">
+                LINXAR<span className="text-blue-500">.</span>
+              </span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-white/40 leading-relaxed font-medium">
-              O motor de inteligência que padroniza o e-commerce global através de infraestrutura escalável e processamento seguro.
+            <p className="mt-6 max-w-sm text-base text-white/30 leading-relaxed font-medium">
+              A infraestrutura de inteligência que padroniza o e-commerce global através de automação escalável e processamento seguro.
             </p>
           </div>
 

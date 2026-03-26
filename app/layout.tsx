@@ -3,11 +3,12 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
-import { Inter } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className="h-full scroll-smooth">
-      <body className={`${inter.variable} min-h-full antialiased font-sans relative`}>
+      <body className={`${outfit.variable} ${jakarta.variable} min-h-full antialiased font-sans relative`}>
         {/* Background Aurora System - Real Aurora Rays (from photo 3) */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-white">
           <div className="absolute inset-0 opacity-40 blur-[40px]">

@@ -2,8 +2,13 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
+import ProductContent from "@/components/sections/product/ProductContent";
+import AboutNarrative from "@/components/sections/about/AboutNarrative";
+import AboutCompany from "@/components/sections/about/AboutCompany";
 import NetworkIntelligence from "@/components/sections/NetworkIntelligence";
 import Steps from "@/components/sections/Steps";
+import DashboardPreview from "@/components/sections/DashboardPreview";
+import SecureMigration from "@/components/sections/SecureMigration";
 import Testimonials from "@/components/sections/Testimonials";
 import Container from "@/components/ui/Container";
 
@@ -15,23 +20,48 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
-      {/* 1. HERO - Unificado com suporte a vídeo opcional */}
-      <Hero />
+    <main className="relative">
+      {/* 1. HERO - #inicio */}
+      <section id="inicio">
+        <Hero />
+        <DashboardPreview />
+      </section>
 
-      {/* 2. FLUXAR AI - Core Features Bento Grid */}
-      <Features />
+      {/* 2. PRODUTO - #produto */}
+      <section id="produto" className="scroll-mt-20">
+        <Features />
+        <ProductContent />
+      </section>
 
-      {/* 3. NETWORK INTELLIGENCE - Diferencial Tecnológico */}
-      <NetworkIntelligence />
+      {/* 3. NARRATIVA - #narrativa */}
+      <AboutNarrative />
 
-      {/* 4. PASSOS / STEPS - Demonstração visual */}
-      <Steps />
+      {/* 4. MIGRAÇÃO - #migracao */}
+      <section id="migracao">
+        <SecureMigration />
+      </section>
 
-      {/* 5. TESTIMONIALS - Feedback real */}
-      <Testimonials />
+      {/* 5. QUEM SOMOS - #quem-somos (INSTITUCIONAL) */}
+      <section id="quem-somos" className="scroll-mt-20">
+        <AboutCompany />
+      </section>
 
-      {/* 6. CALL TO ACTION - Final de página */}
+      {/* 6. INFRAESTRUTURA - #infraestrutura */}
+      <section id="infraestrutura" className="scroll-mt-20">
+        <NetworkIntelligence />
+      </section>
+
+      {/* 7. COMO FUNCIONA - #como-funciona (WORKFLOW) */}
+      <section id="como-funciona" className="scroll-mt-20">
+        <Steps />
+      </section>
+
+      {/* 8. TESTIMONIALS - #depoimentos */}
+      <section id="depoimentos" className="scroll-mt-20">
+        <Testimonials />
+      </section>
+
+      {/* 9. CALL TO ACTION */}
       <section className="py-24 sm:py-32 bg-[#020202] text-white relative overflow-hidden">
         <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)] pointer-events-none" />
         <Container className="relative z-10">
@@ -44,12 +74,12 @@ export default function HomePage() {
             </p>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               <a
-                href="/demo"
+                href="https://hub.linxar.com.br/login"
                 className="rounded-full bg-blue-600 px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-blue-500/20 hover:bg-blue-500 transition-all hover:scale-105 active:scale-95"
               >
                 Começar Agora
               </a>
-              <a href="/contato" className="text-lg font-bold text-white/70 hover:text-white transition-colors">
+              <a href="https://wa.me/5542991310000" className="text-lg font-bold text-white/70 hover:text-white transition-colors">
                 Falar com consultor <span aria-hidden="true" className="ml-2">→</span>
               </a>
             </div>

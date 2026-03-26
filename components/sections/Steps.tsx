@@ -27,11 +27,9 @@ export default function Steps() {
     <section id="passos" className="relative py-24 sm:py-32 bg-transparent overflow-hidden">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          <h2 className="shimmer-text text-[11px] font-black uppercase tracking-[0.4em] mb-8 inline-block">Workflow LINXAR</h2>
+          <p className="text-4xl font-black tracking-tight text-black sm:text-6xl leading-[1.1] text-balance">
             Dos dados crus para a venda em segundos
-          </h2>
-          <p className="mt-4 text-base text-black/60 sm:text-lg">
-            Três passos ilustrados para dominar os marketplaces.
           </p>
         </div>
 
@@ -45,11 +43,11 @@ export default function Steps() {
               viewport={{ once: true }}
               className="relative flex flex-col items-center text-center lg:items-start lg:text-left group"
             >
-              <span className="text-4xl font-black text-blue-600/10 select-none absolute -top-8 -left-2 transition-transform group-hover:scale-110">
+              <span className="text-6xl font-black text-blue-600/5 select-none absolute -top-12 -left-4 transition-transform group-hover:scale-110 group-hover:text-blue-600/10">
                 {step.number}
               </span>
               <h3 className="text-2xl font-bold text-black tracking-tight">{step.title}</h3>
-              <p className="mt-4 text-base text-black/40 leading-relaxed font-medium">
+              <p className="mt-4 text-base text-black/60 leading-relaxed font-medium">
                 {step.description}
               </p>
             </motion.div>
