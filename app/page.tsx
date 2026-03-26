@@ -21,47 +21,53 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="relative">
-      {/* 1. HERO - #inicio */}
+      {/* 1. VISÃO & IMPACTO INICIAL - #inicio */}
       <section id="inicio">
         <Hero />
         <DashboardPreview />
       </section>
 
-      {/* 2. PRODUTO - #produto */}
-      <section id="produto" className="scroll-mt-20">
-        <Features />
-        <ProductContent />
-      </section>
-
-      {/* 3. NARRATIVA - #narrativa */}
-      <AboutNarrative />
-
-      {/* 4. MIGRAÇÃO - #migracao */}
-      <section id="migracao">
-        <SecureMigration />
-      </section>
-
-      {/* 5. QUEM SOMOS - #quem-somos (INSTITUCIONAL) */}
-      <section id="quem-somos" className="scroll-mt-20">
-        <AboutCompany />
-      </section>
-
-      {/* 6. INFRAESTRUTURA - #infraestrutura */}
+      {/* 2. O DIFERENCIAL TÉCNICO - #infraestrutura */}
       <section id="infraestrutura" className="scroll-mt-20">
         <NetworkIntelligence />
       </section>
 
-      {/* 7. COMO FUNCIONA - #como-funciona (WORKFLOW) */}
+      {/* 3. OS PILARES FUNCIONAIS & MARKETPLACES - #recursos */}
+      <section id="recursos" className="scroll-mt-20">
+        <Features />
+      </section>
+
+      {/* 4. O PROBLEMA & A SOLUÇÃO DETALHADA - #produto */}
+      <section id="produto" className="scroll-mt-20">
+        <ProductContent />
+      </section>
+
+      {/* 5. A FILOSOFIA DA INTELIGÊNCIA - #narrativa */}
+      <section id="narrativa" className="scroll-mt-20">
+        <AboutNarrative />
+      </section>
+
+      {/* 6. JORNADA DE IMPLEMENTAÇÃO - #como-funciona */}
       <section id="como-funciona" className="scroll-mt-20">
         <Steps />
       </section>
 
-      {/* 8. TESTIMONIALS - #depoimentos */}
+      {/* 7. SEGURANÇA NA TRANSIÇÃO - #migracao */}
+      <section id="migracao" className="scroll-mt-20">
+        <SecureMigration />
+      </section>
+
+      {/* 8. AUTORIDADE & ORIGEM - #quem-somos */}
+      <section id="quem-somos" className="scroll-mt-20">
+        <AboutCompany />
+      </section>
+
+      {/* 9. VALIDAÇÃO SOCIAL - #depoimentos */}
       <section id="depoimentos" className="scroll-mt-20">
         <Testimonials />
       </section>
 
-      {/* 9. CALL TO ACTION */}
+      {/* 10. FECHAMENTO & CTA */}
       <section className="py-24 sm:py-32 bg-[#020202] text-white relative overflow-hidden">
         <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)] pointer-events-none" />
         <Container className="relative z-10">

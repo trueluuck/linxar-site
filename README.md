@@ -1,7 +1,8 @@
-# LINXAR | Infraestrutura de Crescimento para Marketplaces
+# LINXAR | Inteligência Omnicanal para Marketplaces
 
 [![Site](https://img.shields.io/badge/Site-linxar.com.br-blue)](https://linxar.com.br)
-[![Status](https://img.shields.io/badge/Deploy-Vercel-black)](https://vercel.com)
+[![Framework](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![Status](https://img.shields.io/badge/Lighthouse-95+-green)](https://pagespeed.web.dev/)
 
 A **LINXAR** é a infraestrutura de inteligência que conecta dados, automação e vendas. Transformamos o **caos operacional** do cadastro de produtos em **crescimento escalável** com IA omnicanal.
 
@@ -16,21 +17,13 @@ A plataforma foi construída sob os mais altos padrões de engenharia de softwar
 - **Animações**: [Framer Motion](https://www.framer.com/motion/) — Micro-interações e transições fluidas.
 - **Linguagem**: [TypeScript](https://www.typescriptlang.org/) — Tipagem forte e segurança de código.
 - **Componentes UI**: Radix UI & Lucide React — Acessibilidade e iconografia moderna.
-- **Deploy/Vercel Edge**: Entrega global com baixa latência.
-
-### 📊 Composição de Linguagem
-
-Baseado no volume de código e lógica da aplicação:
-
-- **TypeScript (TSX/TS)**: `96.5%` (Lógica de componentes, estados e tipos)
-- **CSS (Tailwind/Globals)**: `2.2%` (Estilos globais e atmosphere orbs)
-- **Documentação/JSON**: `1.3%` (PRD, README e configurações)
+- **Performance**: Vercel Edge Runtime & Static Generation.
 
 ---
 
-## ✨ Diferenciais de Experiência (V1.2 - Premium Update)
+## 💎 Diferenciais de Experiência (V1.2 - Premium Update)
 
-- **Interactive Hub Hub Visual**: Sistema de 6 conexões (4 funcionalidades + 2 parcerias institucionais como UTFPR/Sprint) com raios de luz dinâmicos e cores diferenciadas.
+- **Interactive Hub Visual**: Sistema de 6 conexões (4 funcionalidades + 2 parcerias institucionais como UTFPR/Sprint) com raios de luz dinâmicos e cores diferenciadas.
 - **Mobile-First Versatility**: Layout otimizado para celulares antigos e novos, garantindo que a escala do Hero e do Dashboard se ajuste a qualquer polegada.
 - **SPA Fluid Architecture**: Navegação instantânea sem refresh, com detector de seção ativo no menu superior.
 - **Fluxar AI Engine Preview**: Demonstração em código (pixel-perfect) do dashboard funcional, evitando o uso de imagens estáticas de baixa qualidade.
