@@ -12,36 +12,55 @@ export default function AboutCompany() {
 
   return (
     <div className="scroll-mt-20">
-      {/* 1. Quem Somos / Tecnologia */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      {/* Liderança e Autoridade */}
+      <section className="py-24 sm:py-32 border-t border-black/[0.04] bg-[#fafafa]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-xs uppercase tracking-widest text-black/50 mb-6 font-black">Quem Somos</p>
+              <p className="text-xs font-black uppercase tracking-[0.4em] text-blue-600 mb-8">Liderança e Tecnologia</p>
               <h2 className="text-4xl sm:text-6xl font-black tracking-tighter text-black leading-[1.05]">
-                Tecnologia brasileira para escalar sua operação
+                Guiados por quem vive <br className="hidden sm:block"/> o varejo digital.
               </h2>
               <p className="mt-8 text-lg text-black/60 leading-relaxed font-medium max-w-xl">
-                A <strong>LINXAR</strong> é uma marca/produto da <strong>FCGROUP</strong> (Fedumenti Group).
-                Nascemos da prática com sellers e PMEs, somando engenharia e design para
-                otimizar listagens e integrar marketplaces de ponta a ponta.
+                A LINXAR é liderada por especialistas que entendem a dor do lojista. 
+                Sob a visão de Lucas Fedumenti, unimos engenharia de software e inteligência artificial 
+                para criar a infraestrutura que indústrias e grandes sellers utilizam para escalar.
               </p>
+              
+              <div className="mt-12 group">
+                <Link 
+                   href="https://www.linkedin.com/in/lucas-fedumenti-castro-69681bb1/" 
+                   target="_blank"
+                   className="inline-flex items-center gap-4 p-4 rounded-3xl border border-black/5 bg-white shadow-sm hover:shadow-xl hover:border-blue-600/20 transition-all font-outfit"
+                >
+                  <div className="h-16 w-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white overflow-hidden font-black">
+                     LF
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-black tracking-tight">Lucas Fedumenti</h4>
+                    <p className="text-[10px] text-black/40 font-black uppercase tracking-widest">CEO & Founder</p>
+                  </div>
+                  <div className="ml-4 h-10 w-10 rounded-full border border-black/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </div>
+                </Link>
+              </div>
             </div>
-            <div className="relative">
-               <div className="aspect-square rounded-[64px] overflow-hidden border border-black/5 shadow-2xl">
-                  <Image 
-                    src="/logos/linxar.png" 
-                    alt="Linxar Hub" 
-                    width={800} 
-                    height={800} 
-                    className="object-contain p-20 bg-[#fafafa]"
-                  />
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+               <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                  <p className="font-black text-blue-600 text-xs uppercase tracking-widest mb-3">Escopo Digital</p>
+                  <p className="text-sm text-black/60 leading-relaxed font-medium">Plataforma nativa em nuvem para automação de ativos digitais.</p>
                </div>
-               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-600/5 blur-[100px] rounded-full" />
+               <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                  <p className="font-black text-blue-600 text-xs uppercase tracking-widest mb-3">P&D Institucional</p>
+                  <p className="text-sm text-black/60 leading-relaxed font-medium">Tecnologia validada no ambiente de inovação da UTFPR.</p>
+               </div>
             </div>
           </div>
         </Container>
       </section>
+
 
       {/* 2. História / Rebranding */}
       <section className="py-24 sm:py-32 border-t border-black/[0.04]">
