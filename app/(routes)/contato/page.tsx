@@ -43,7 +43,7 @@ export default function ContatoPage() {
             </p>
           </div>
           
-          <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3">
             <div className="rounded-3xl border border-black/5 bg-white/50 p-8 backdrop-blur-md">
               <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600">Parcerias</h3>
               <p className="mt-4 text-sm text-black/60">Quer levar a LINXAR para seus clientes? Fale com nosso time de parcerias.</p>
@@ -51,6 +51,13 @@ export default function ContatoPage() {
             <div className="rounded-3xl border border-black/5 bg-white/50 p-8 backdrop-blur-md">
               <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600">Suporte</h3>
               <p className="mt-4 text-sm text-black/60">Já é cliente e precisa de ajuda técnica? Nosso suporte está à disposição.</p>
+            </div>
+            <div className="rounded-3xl border border-blue-600/10 bg-blue-600/5 p-8 backdrop-blur-md">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600">Administrativo</h3>
+              <p className="mt-4 text-sm text-black/90 font-medium">Questões formais e financeiras:</p>
+              <a href="mailto:administrativo@linxar.com.br" className="mt-2 block text-sm font-bold text-blue-600 hover:underline">
+                administrativo@linxar.com.br
+              </a>
             </div>
           </div>
         </div>

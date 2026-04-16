@@ -28,6 +28,13 @@ const footerLinks = [
       { name: "Termos", href: "#" },
     ],
   },
+  {
+    title: "Contato",
+    links: [
+      { name: "administrativo@linxar.com.br", href: "mailto:administrativo@linxar.com.br" },
+      { name: "Suporte WhatsApp", href: "https://wa.me/5542991310000" },
+    ],
+  },
 ];
 
 export default function Footer() {

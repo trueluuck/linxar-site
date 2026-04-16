@@ -36,11 +36,16 @@ function FeatureCard({
   );
 }
 
+import ProductWalkthrough from "./ProductWalkthrough";
+
 export default function ProductContent() {
   const reduced = useReducedMotion();
 
   return (
     <div className="pb-24">
+      {/* Walkthrough do Produto */}
+      <ProductWalkthrough />
+
       {/* 1. Header Hero da página de produto */}
       <section className="relative overflow-hidden py-24 sm:py-32">
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_50%,rgba(59,130,246,0.08)_0%,rgba(255,255,255,0)_100%)]" />

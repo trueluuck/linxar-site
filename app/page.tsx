@@ -13,9 +13,9 @@ import Testimonials from "@/components/sections/Testimonials";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "LINXAR — O motor de INTELIGÊNCIA que padroniza seu e-commerce",
+  title: "LINXAR Hub — Plataforma Inteligente de Automação de Produtos para Marketplaces",
   description:
-    "A LINXAR utiliza aprendizado em rede de sellers para padronizar e enriquecer dados de produtos automaticamente para todos os marketplaces.",
+    "A LINXAR é uma solução SaaS proprietária que utiliza IA Generativa e Motor MIP v4.6 para automatizar o cadastro, enriquecimento e sincronização de catálogos para indústrias e grandes sellers.",
 };
 
 export default function HomePage() {

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import ProductContent from "@/components/sections/product/ProductContent";
 
 export const metadata: Metadata = {
-  title: "Produto",
+  title: "LINXAR Hub — Tecnologia Proprietária e Motor de IA",
   description:
-    "Conheça a plataforma LINXAR: IA para otimizar listagens, centralizar canais e escalar operações em marketplaces."
+    "Descubra as especificações técnicas do Linxar Hub: do Motor MIP v4.6 à integração Enterprise com indústrias e ERPs."
 };
 
 export default function ProdutoPage() {

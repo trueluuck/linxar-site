@@ -74,7 +74,64 @@ export default function AboutContent() {
             />
           </div>
         </Container>
+      {/* Liderança e Autoridade */}
+      <section className="py-24 sm:py-32 bg-[#fafafa]">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 mb-8">Liderança e Tecnologia</h2>
+              <h3 className="text-4xl sm:text-6xl font-black tracking-tight text-black leading-tight">
+                Guiados por quem vive <br className="hidden sm:block"/> o e-commerce.
+              </h3>
+              <p className="mt-8 text-lg text-black/60 leading-relaxed font-medium max-w-xl">
+                Nossa diretoria combina visão estratégica e execução técnica de ponta. 
+                Sob a liderança de Lucas Fedumenti, a LINXAR evoluiu de uma ideia incubada na UTFPR para uma 
+                infraestrutura robusta que atende indústrias e grandes sellers.
+              </p>
+              
+              <div className="mt-12 group">
+                <Link 
+                  href="https://www.linkedin.com/in/lucas-fedumenti-castro-69681bb1/" 
+                  target="_blank"
+                  className="inline-flex items-center gap-4 p-4 rounded-3xl border border-black/5 bg-white shadow-sm hover:shadow-xl hover:border-blue-600/20 transition-all"
+                >
+                  <div className="h-16 w-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white overflow-hidden">
+                     {/* Se houver foto: <Image src="/team/lucas.jpg" ... /> */}
+                     <span className="text-xl font-bold">LF</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-black tracking-tight">Lucas Fedumenti</h4>
+                    <p className="text-xs text-black/40 font-bold uppercase tracking-widest">CEO & Founder</p>
+                  </div>
+                  <div className="ml-4 h-10 w-10 rounded-full border border-black/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+              <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                <p className="font-black text-blue-600 mb-2">Engenharia de Software</p>
+                <p className="text-black/60 leading-relaxed">Arquitetura modular em Node.js e Next.js para escala global.</p>
+              </div>
+              <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                <p className="font-black text-blue-600 mb-2">IA Generativa</p>
+                <p className="text-black/60 leading-relaxed">Motor MIP v4.6 otimizado para enriquecimento de catálogos complexos.</p>
+              </div>
+              <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                <p className="font-black text-blue-600 mb-2">Ambiente UTFPR</p>
+                <p className="text-black/60 leading-relaxed">Validação técnica e científica dentro do ecossistema de inovação.</p>
+              </div>
+              <div className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm">
+                <p className="font-black text-blue-600 mb-2">Foco Enterprise</p>
+                <p className="text-black/60 leading-relaxed">Soluções desenhadas para indústrias e ERPs de grande porte.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
       </section>
+
 
       {/* Propósito e Infraestrutura */}
       <section className="py-24 sm:py-40 relative overflow-hidden">
