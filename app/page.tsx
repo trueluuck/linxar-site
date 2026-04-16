@@ -27,24 +27,24 @@ export default function HomePage() {
         <DashboardPreview />
       </section>
 
-      {/* 2. O DIFERENCIAL TÉCNICO - #infraestrutura */}
-      <section id="infraestrutura" className="scroll-mt-20">
-        <NetworkIntelligence />
-      </section>
-
-      {/* 3. OS PILARES FUNCIONAIS & MARKETPLACES - #recursos */}
-      <section id="recursos" className="scroll-mt-20">
-        <Features />
-      </section>
-
-      {/* 4. O PROBLEMA & A SOLUÇÃO DETALHADA - #produto */}
+      {/* 2. O PRODUTO & WALKTHROUGH IA - #produto */}
       <section id="produto" className="scroll-mt-20">
         <ProductContent />
       </section>
 
-      {/* 5. A FILOSOFIA DA INTELIGÊNCIA - #narrativa */}
-      <section id="narrativa" className="scroll-mt-20">
-        <AboutNarrative />
+      {/* 3. AUTORIDADE & EQUIPE - #quem-somos */}
+      <section id="quem-somos" className="scroll-mt-20">
+        <AboutCompany />
+      </section>
+
+      {/* 4. O DIFERENCIAL TÉCNICO - #infraestrutura */}
+      <section id="infraestrutura" className="scroll-mt-20">
+        <NetworkIntelligence />
+      </section>
+
+      {/* 5. OS PILARES FUNCIONAIS & MARKETPLACES - #recursos */}
+      <section id="recursos" className="scroll-mt-20">
+        <Features />
       </section>
 
       {/* 6. JORNADA DE IMPLEMENTAÇÃO - #como-funciona */}
@@ -57,12 +57,7 @@ export default function HomePage() {
         <SecureMigration />
       </section>
 
-      {/* 8. AUTORIDADE & ORIGEM - #quem-somos */}
-      <section id="quem-somos" className="scroll-mt-20">
-        <AboutCompany />
-      </section>
-
-      {/* 9. VALIDAÇÃO SOCIAL - #depoimentos */}
+      {/* 8. VALIDAÇÃO SOCIAL - #depoimentos */}
       <section id="depoimentos" className="scroll-mt-20">
         <Testimonials />
       </section>
