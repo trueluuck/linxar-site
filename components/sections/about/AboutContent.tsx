@@ -74,6 +74,8 @@ export default function AboutContent() {
             />
           </div>
         </Container>
+      </section>
+
       {/* Liderança e Autoridade */}
       <section className="py-24 sm:py-32 bg-[#fafafa]">
         <Container>
