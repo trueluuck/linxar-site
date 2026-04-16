@@ -32,7 +32,7 @@ const footerLinks = [
     title: "Contato",
     links: [
       { name: "administrativo@linxar.com.br", href: "mailto:administrativo@linxar.com.br" },
-      { name: "Suporte WhatsApp", href: "https://wa.me/5542991310000" },
+      { name: "Suporte WhatsApp", href: "https://wa.me/5542999217736" },
     ],
   },
 ];

@@ -80,7 +80,7 @@ export default function HomePage() {
               >
                 Começar Agora
               </a>
-              <a href="https://wa.me/5542991310000" className="text-lg font-bold text-white/70 hover:text-white transition-colors">
+              <a href="https://wa.me/5542999217736" className="text-lg font-bold text-white/70 hover:text-white transition-colors">
                 Falar com consultor <span aria-hidden="true" className="ml-2">→</span>
               </a>
             </div>

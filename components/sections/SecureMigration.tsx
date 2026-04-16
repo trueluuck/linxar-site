@@ -47,7 +47,7 @@ export default function SecureMigration() {
 
             <div className="mt-12">
                <a 
-                href="https://wa.me/5542991310000" 
+                href="https://wa.me/5542999217736" 
                 className="btn-premium inline-block"
               >
                 Solicitar Migração Assistida
